@@ -1,0 +1,10 @@
+{
+    "modules": [
+        {
+            "npm": "classnames"
+        },
+        {
+            "dir": "src/modules"
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+<template>
+	<section class="todoapp">
+		<header class="header">
+			<h1>todos</h1>
+			<input class="new-todo"
+				autofocus
+				autocomplete="off"
+				placeholder="What needs to be done?"
+				value={newTodo}
+				onkeyup={onChangeNewTodo}
+			>
+		</header>
+		<section class="main" if:true={todos.length}>
+			<input id="toggle-all" class="toggle-all" type="checkbox" checked={allCompleted} onchange={switchAll}>
+			<label for="toggle-all">Mark all as complete</label>
+			<ul class="todo-list">
+				<template for:each={filteredTodos} for:item="todo" for:index="index">
+					<sparkybit-todo-item key={todo.id} todo-id={todo.id} todo-index={index} completed={todo.completed} title={todo.title}
+						editing={todo.editing} onswitchtodo={switchToDo} onedittodo={editTodo} oncanceledit={cancelEdit}
+						onsaveedit={saveEdit} onremovetodo={removeTodo}>
+					</sparkybit-todo-item>
+				</template>
+			</ul>
+		</section>
+		<footer class="footer" if:true={todos.length}>
+			<span class="todo-count">
+				<strong>{remainingItemsText}</strong>
+			</span>
+			<ul class="filters">
+				<li>
+					<a href="#/all" data-visibility="all" onclick={changeVisibilityFilter} class={allSelectedClass}>All</a>
+				</li>
+				<li>
+					<a href="#/active" data-visibility="active" onclick={changeVisibilityFilter}
+						class={activeSelectedClass}>Active</a>
+				</li>
+				<li>
+					<a href="#/completed" data-visibility="completed" onclick={changeVisibilityFilter}
+						class={completedSelectedClass}>Completed</a></li>
+			</ul>
+			<button if:true={showClearCompleted} class="clear-completed" onclick={removeCompleted}>
+					Clear completed
+				</button>
+		</footer>
+	</section>
+	<slot name="footer">
+		<footer class="info">
+			<p>Boring Default Footer</p>
+		</footer>
+	</slot>
+</template>
