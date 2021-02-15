@@ -1,6 +1,6 @@
 import { createElement } from 'lwc';
-import SparkybitTodoApp from 'sparkybit/todoApp';
+import SparkyTodoApp from 'sparkybit/todoApp';
 
-const app = createElement('my-app', { is: SparkybitTodoApp });
+const app = createElement('sparkybit-todo-app', { is: SparkyTodoApp });
 // eslint-disable-next-line @lwc/lwc/no-document-query
 document.querySelector('#main').appendChild(app);

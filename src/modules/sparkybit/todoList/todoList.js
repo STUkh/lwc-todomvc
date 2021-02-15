@@ -1,7 +1,7 @@
 // available packages for import should be defined in lwc.config.json
 import { LightningElement, api, track } from "lwc";
 
-export default class SparkybitTodoList extends LightningElement {
+export default class TodoList extends LightningElement {
   // DEFAULT PROPERTIES
 
   @api newTodo = '';
@@ -94,7 +94,7 @@ export default class SparkybitTodoList extends LightningElement {
   }
 
   removeCompleted(event) {
-    this.todos = App.filters.active(this.todos);
+    this.todos = TodoList.filters.active(this.todos);
   }
 
   switchToDo(event) {
@@ -154,7 +154,7 @@ export default class SparkybitTodoList extends LightningElement {
   // GETTERS / SETTERS
 
   get remainingLength() {
-    return App.filters.active(this.todos).length;
+    return TodoList.filters.active(this.todos).length;
   }
   
   get remainingItemsText() {
@@ -162,7 +162,7 @@ export default class SparkybitTodoList extends LightningElement {
   }
   
   get filteredTodos() {
-    return App.filters[this.visibility](this.todos);
+    return TodoList.filters[this.visibility](this.todos);
   }
 
   get showClearCompleted() {

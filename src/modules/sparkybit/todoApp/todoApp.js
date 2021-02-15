@@ -1,5 +1,5 @@
 import { LightningElement } from "lwc";
 
-export default class SparkybitTodoApp extends LightningElement {
+export default class TodoApp extends LightningElement {
 
 }

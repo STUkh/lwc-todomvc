@@ -1,10 +1,10 @@
 {
     "modules": [
         {
-            "npm": "classnames"
+            "dir": "src/modules"
         },
         {
-            "dir": "src/modules"
+            "npm": "classnames"
         }
     ]
 }

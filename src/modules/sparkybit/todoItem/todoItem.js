@@ -1,7 +1,7 @@
 import { LightningElement, api, track } from "lwc";
 import classNames from 'classnames';
 
-export default class SparkybitTodoItem extends LightningElement {
+export default class TodoItem extends LightningElement {
   @api completed;
   @api editing;
   @api todoId;
