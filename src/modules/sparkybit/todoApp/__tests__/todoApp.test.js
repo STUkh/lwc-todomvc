@@ -10,6 +10,17 @@ import { createElement } from 'lwc';
 import SparkybitTodoApp from 'sparkybit/todoApp';
 
 describe('sparkybit-todo-app', () => {
+    let todoAppEl;
+    let todoAppShadowRoot;
+
+    beforeEach(() => {
+        todoAppEl = createElement('sparkybit-todo-app', {
+            is: SparkybitTodoApp
+        });
+        document.body.appendChild(todoAppEl);
+        todoAppShadowRoot = todoAppEl.shadowRoot;
+    });
+
     afterEach(() => {
         // The jsdom instance is shared across test cases in a single file so reset the DOM
         while (document.body.firstChild) {
@@ -18,13 +29,11 @@ describe('sparkybit-todo-app', () => {
     });
 
     it('should pass sanity check', () => {
-        const element = createElement('sparkybit-todo-app', {
-            is: SparkybitTodoApp
-        });
-        const divEl = element.shadowRoot.querySelector('div');
-        expect(element.length).toBeGreaterThan(0);
-        console.log(element, divEl)
-        document.body.appendChild(element);
+        expect(todoAppEl).toBeInstanceOf(HTMLElement);
+        expect(todoAppEl.tagName).toBe('SPARKYBIT-TODO-APP');
+
+        const todoListEl = todoAppShadowRoot.querySelector('sparkybit-todo-list');
+        expect(todoListEl).toBeInstanceOf(HTMLElement);
     });
 
     // it('contains a div that controls animation.', () => {
