@@ -58,7 +58,7 @@ export default class TodoList extends LightningElement {
     this.todos = defaultItems.map(item => ({ ...item }));
   }
 
-  addTodo(event) {
+  addTodo() {
     const value = this.newTodo && this.newTodo.trim();
       if (!value) {
         return undefined;
@@ -71,6 +71,7 @@ export default class TodoList extends LightningElement {
         editing: false,
       });
       this.newTodo = '';
+      return undefined;
   }
 
   updateNewTodo(event) {
@@ -101,7 +102,7 @@ export default class TodoList extends LightningElement {
     });
   }
 
-  removeCompleted(event) {
+  removeCompleted() {
     this.todos = TodoList.filters.active(this.todos);
   }
 
@@ -124,6 +125,8 @@ export default class TodoList extends LightningElement {
     }
 
     this.todos.splice(todoIndex, 1);
+
+    return undefined;
   }
 
   editTodo(event) {
@@ -155,7 +158,7 @@ export default class TodoList extends LightningElement {
   }
 
   findTodoItemById(todoId) {
-    const todoItem = this.todos.find(todo => todo.id == todoId);
+    const todoItem = this.todos.find(todo => todo.id === todoId);
     return todoItem;
   }
 

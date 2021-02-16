@@ -5,6 +5,7 @@
         "@lwc/lwc/no-async-operation": "off",
         "@lwc/lwc/no-inner-html": "warn",
         "@lwc/lwc/no-document-query": "warn",
+        "@lwc/lwc/no-api-reassignments": "off",
         "inclusive-language/use-inclusive-words": "error"
     }
 }
