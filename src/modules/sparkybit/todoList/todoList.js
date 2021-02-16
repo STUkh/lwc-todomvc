@@ -176,12 +176,14 @@ export default class TodoList extends LightningElement {
     return this.todos.length > this.remainingLength;
   }
 
+  // Example how to watch for props. 
+  // Required to create setter decorated with @api
+  // And getter to store original prop value in encapsulated(not really) property
   @api
   get defaultItems() {
     return this._defaultItems;
   }
   set defaultItems(value) {
-    console.log('SETTER')
     this._defaultItems = value;
     this.assignDefaultItems(this._defaultItems);
   }
