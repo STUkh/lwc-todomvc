@@ -33,16 +33,18 @@ export class getTodosWireAdapter {
         }
     }
 
-    provideTodoItemsWithType(id) {
-        if (this.connected && this.type !== undefined) {
-            console.log(this.type)
-            const todoItems = todoItemsMock[this.type];
-
-            if (todoItems) {
-                this.dataCallback(todoItems);
-            } else {
-                this.dataCallback([]);
-            }
+    provideTodoItemsWithType(type) {
+        // Here can be performed any asynchronous stuff to fetch data
+        // The only thing is to call dataCallback when data ready
+        if (this.connected && type !== undefined) {
+            const todoItems = todoItemsMock[type];
+            setTimeout(() => {
+                if (todoItems) {
+                    this.dataCallback(todoItems);
+                } else {
+                    this.dataCallback(null);
+                }
+            }, 200); // Async action simulation
         }
     }
 }

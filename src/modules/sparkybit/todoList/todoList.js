@@ -54,6 +54,7 @@ export default class TodoList extends LightningElement {
   assignDefaultItems(defaultItems) {
     // Re-assign default todos into todos list.
     // Required to unbind defaultItems reactivity before assignment
+    defaultItems = defaultItems || [];
     this.todos = defaultItems.map(item => ({ ...item }));
   }
 
