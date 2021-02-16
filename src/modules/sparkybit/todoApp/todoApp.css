@@ -6,7 +6,7 @@ body {
 
 sparkybit-todo-list {
 	display: block;
-	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font: 14px 'Salesforce Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 1.4em;
 	color: #4d4d4d;
 	min-width: 230px;
@@ -28,13 +28,13 @@ sparkybit-todo-list {
 .info {
 	margin: 65px auto 0;
 	color: #bfbfbf;
-	font-size: 10px;
+	font-size: 12px;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 	text-align: center;
 }
 
 .info p {
-	line-height: 1;
+	line-height: 1.4;
 }
 
 .info a {

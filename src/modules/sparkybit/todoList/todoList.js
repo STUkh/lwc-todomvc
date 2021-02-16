@@ -7,6 +7,7 @@ export default class TodoList extends LightningElement {
   @api newTodo = '';
   @api visibility = 'all';
   @api editedTodo = null;
+  // @api defaultItems = []
 
   // Watch and re-render on todo list mutations
   @track todos = [];
@@ -49,6 +50,12 @@ export default class TodoList extends LightningElement {
 	};
 
   // METHODS
+
+  assignDefaultItems(defaultItems) {
+    // Re-assign default todos into todos list.
+    // Required to unbind defaultItems reactivity before assignment
+    this.todos = defaultItems.map(item => ({ ...item }));
+  }
 
   addTodo(event) {
     const value = this.newTodo && this.newTodo.trim();
@@ -167,6 +174,16 @@ export default class TodoList extends LightningElement {
 
   get showClearCompleted() {
     return this.todos.length > this.remainingLength;
+  }
+
+  @api
+  get defaultItems() {
+    return this._defaultItems;
+  }
+  set defaultItems(value) {
+    console.log('SETTER')
+    this._defaultItems = value;
+    this.assignDefaultItems(this._defaultItems);
   }
 
   // Shame on you, Lightning...

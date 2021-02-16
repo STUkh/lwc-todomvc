@@ -1,10 +1,12 @@
-import { LightningElement, wire } from "lwc";
-// import { getTodoItems } from '../../../utils/mockApi';
+import { LightningElement, api, wire } from "lwc";
+// Mock wire adapter to show default data
+import { getTodosWireAdapter } from '../../../utils/mockApi';
 
 export default class TodoApp extends LightningElement {
-    // @wire(getTodoItems, { id: '$bookId'}) items;
+    @api listType = 'default'; // Change to 'special' to get some delicious
+    @wire(getTodosWireAdapter, { type: '$listType'}) todoItems;
 
-    // renderedCallback() {
-    //     console.log(this.items)
-    // }
+    switchDefaultListType() {
+        this.listType = this.listType === 'default' ? 'special' : 'default';
+    }
 }
