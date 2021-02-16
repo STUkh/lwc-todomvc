@@ -96,7 +96,7 @@ export default class TodoList extends LightningElement {
   switchAll(event) {
     event.preventDefault();
     const value = event.target.checked;
-    this.filteredTodos.forEach(todo => {
+    this.todos.forEach(todo => {
       todo.completed = value;
     });
   }
@@ -195,7 +195,7 @@ export default class TodoList extends LightningElement {
   get completedSelectedClass() { return this.visibility === 'completed' ? 'selected' : ''; }
 
   get allCompleted() {
-    return this.filteredTodos.every(todo => todo.completed);
+    return this.todos.every(todo => todo.completed);
   }
 
   // HELPERS
