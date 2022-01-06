@@ -1,6 +1,6 @@
 # 💡 Salesforce lwc-todomvc 
 
-☁️ Salesforce LWC TodoMVC example. Great way to start your SF LWC project. This guide implements full-featured example from `https://todomvc.com/`(https://todomvc.com/) and using almost all features from LWC like *modules*, *composition*, *reactivity*, *events*, *component lifecycle events* and even *test example*.
+☁️ Salesforce LWC TodoMVC example. Great way to start your SF LWC project. This guide implements full-featured example from [todomvc.com](https://todomvc.com/) and using almost all features from LWC like *modules*, *composition*, *reactivity*, *events*, *component lifecycle events* and even *test example*.
 
 Start this project if you like it ⭐
 
@@ -17,5 +17,5 @@ Find more information on the main repo on [GitHub](https://github.com/muenzpraeg
 
 ## 📙 More information
 
-For More info about LWC visit `https://lwc.dev/`](https://lwc.dev/) or `Salesforce Developers LWC page`(https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.get_started_introduction)
+For More info about LWC visit [lwc.dev](https://lwc.dev/) or [Salesforce Developers LWC page](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.get_started_introduction)
 
