@@ -15,10 +15,10 @@
 			<label for="toggle-all">Mark all as complete</label>
 			<ul class="todo-list">
 				<template for:each={filteredTodos} for:item="todo" for:index="index">
-					<sparkybit-todo-item key={todo.id} todo-id={todo.id} todo-index={index} completed={todo.completed} title={todo.title}
+					<company-todo-item key={todo.id} todo-id={todo.id} todo-index={index} completed={todo.completed} title={todo.title}
 						editing={todo.editing} onswitchtodo={switchToDo} onedittodo={editTodo} oncanceledit={cancelEdit}
 						onsaveedit={saveEdit} onremovetodo={removeTodo}>
-					</sparkybit-todo-item>
+					</company-todo-item>
 				</template>
 			</ul>
 		</section>

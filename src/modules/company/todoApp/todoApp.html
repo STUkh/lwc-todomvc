@@ -1,10 +1,9 @@
 <template>
-    <lightning-button label="Switch list type (Be careful what you wish for)" title="Non-primary action" onclick={switchDefaultListType} class="slds-m-left_x-small"></lightning-button>
-    <sparkybit-todo-list default-items={todoItems}>
+    <company-todo-list default-items={todoItems}>
         <footer slot="footer" class="info">
             <p>Double-click to edit a todo</p>
             <p>Written by <a href="http://github.com/STUkh">STUkh</a></p>
             <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
         </footer>
-    </sparkybit-todo-list>
+    </company-todo-list>
 </template>

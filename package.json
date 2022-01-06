@@ -1,7 +1,7 @@
 {
     "name": "lwc-todomvc",
-    "description": "My amazing LWC TodoMVC app",
-    "version": "0.0.1",
+    "description": "LWC TodoMVC app",
+    "version": "1.0.0",
     "author": "STUkh",
     "bugs": "https://github.com/STUkh/lwc-todomvc/issues",
     "dependencies": {
