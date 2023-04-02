@@ -5,18 +5,18 @@
     "author": "STUkh",
     "bugs": "https://github.com/STUkh/lwc-todomvc/issues",
     "dependencies": {
-        "classnames": "^2.2.6",
+        "classnames": "^2.3.2",
         "compression": "^1.7.4",
-        "express": "^4.17.1",
-        "helmet": "^4.4.1",
-        "lightning-base-components": "^1.11.2-alpha"
+        "express": "^4.18.2",
+        "helmet": "^6.0.1",
+        "lightning-base-components": "^1.17.7-alpha"
     },
     "devDependencies": {
-        "@salesforce-ux/design-system": "^2.14.2",
+        "@salesforce-ux/design-system": "^2.20.1",
         "eslint": "^7.20.0",
         "husky": "^5.0.9",
         "lint-staged": "^10.5.4",
-        "lwc-services": "^3.0.3",
+        "lwc-services": "^3.2.2",
         "prettier": "^2.2.1"
     },
     "engines": {

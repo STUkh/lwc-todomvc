@@ -1,10 +1,10 @@
 <template>
   <li class={todoClasses}>
-      <div class="view">
-        <input class="toggle" type="checkbox" checked={completed} onchange={handleSwitchTodo} />
-        <label ondblclick={editTodo}>{title}</label>
-        <button class="destroy" onclick={dispatchRemoveTodo}></button>
-      </div>
-      <input class="edit" value={title} onkeyup={onEdit} onblur={saveEdit} />
+    <div class={viewClasses}>
+      <input type="checkbox" class="toggle" checked={todo.completed} onchange={toggleComplete} />
+      <label ondblclick={startEditing}>{todo.title}</label>
+      <button class="destroy" onclick={removeTodo}></button>
+    </div>
+    <input type="text" class={editClasses} value={todo.title} onkeyup={updateTodo} onblur={stopEditing} />
   </li>
 </template>

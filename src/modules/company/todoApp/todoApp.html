@@ -1,9 +1,29 @@
 <template>
-    <company-todo-list default-items={todoItems}>
-        <footer slot="footer" class="info">
+    <div class="todo-wrapper">
+        <div class="todo-app">
+            <company-todo-header
+                todos={todos}
+                ontodo_add={handleAddTodo}
+                ontodo_switch_all={handleToggleAll}
+            ></company-todo-header>
+            <company-todo-list
+                filtered_todos={filteredTodos}
+                ontodo_toggle_complete={handleToggleComplete}
+                ontodo_remove_todo={handleRemoveTodo}
+                ontodo_update={handleUpdateTodo}
+            ></company-todo-list>
+            <company-todo-footer
+                if:true={todos.length}
+                todos={todos}
+                filter={filter}
+                ontodo_clear_completed={handleClearCompleted}
+                ontodo_filter_change={handleFilterChange}
+            ></company-todo-footer>
+        </div>
+        <div class="info">
             <p>Double-click to edit a todo</p>
             <p>Written by <a href="http://github.com/STUkh">STUkh</a></p>
             <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
-        </footer>
-    </company-todo-list>
+        </div>
+    </div>
 </template>

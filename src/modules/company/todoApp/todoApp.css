@@ -4,7 +4,7 @@ body {
 	padding: 0;
 }
 
-company-todo-list {
+.todo-wrapper {
 	display: block;
 	font: 14px 'Salesforce Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 1.4em;
@@ -17,12 +17,12 @@ company-todo-list {
 	font-weight: 300;
 }
 
-:focus {
-	outline: 0;
-}
-
-.hidden {
-	display: none;
+.todo-app {
+	background: #fff;
+	margin: 130px 0 40px 0;
+	position: relative;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 .info {

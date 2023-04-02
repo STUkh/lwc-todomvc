@@ -138,9 +138,9 @@ li:hover .destroy {
 	display: block;
 }
 
-li .edit {
+/* li .edit {
 	display: none;
-}
+} */
 
 li.editing:last-child {
 	margin-bottom: -1px;

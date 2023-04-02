@@ -1,81 +1,66 @@
-import { LightningElement, api, track } from "lwc";
+// todo-item.js
+import { LightningElement, api } from 'lwc';
 import classNames from 'classnames';
 
+// Stateful component that accept particular "todo" from parent component
 export default class TodoItem extends LightningElement {
-  @api completed;
-  @api editing;
-  @api todoId;
-  @api todoIndex;
-  @api title;
-  @api oldTitle;
-  @api editableValue;
+  @api todo;
+  isEditing = false;
 
-  // Fires when data binded and props ready
-  connectedCallback() {
-    this.oldTitle = this.title;
+  toggleComplete() {
+    this.dispatchEvent(new CustomEvent('todo_toggle_complete', {
+      bubbles: true, // Combination of this two params allow us
+      composed: true, // to bypass even through shadow boundary
+      detail: this.todo.id
+    }));
   }
 
-  // Fires when component and its children rendered
-  renderedCallback() {
-    this.editableEl = this.template.querySelector('input.edit');
+  removeTodo() {
+    this.dispatchEvent(new CustomEvent('todo_remove_todo', {
+      bubbles: true,
+      composed: true,
+      detail: this.todo.id
+    }));
   }
 
-  handleSwitchTodo() {
-    this.dispatchEvent(new CustomEvent('switchtodo'));
-  }
-
-  editTodo(event) {
-    this.oldTitle = this.title;
-    this.dispatchEvent(new CustomEvent('edittodo'));
-    // Next tick after render into DOM
-    setTimeout(() => {
-      this.editableEl.focus();
+  startEditing() {
+    this.isEditing = true;
+    setTimeout(() => { // Timeout to let element appear in DOM and then focus on it
+      this.template.querySelector('.edit').focus();
     });
   }
 
-  onEdit(event) {
-    if (this.editing !== true) {
-      return undefined;
-    }
-
-    if (event.keyCode === 27) {
-      // ESC keycode
-      return this.cancelEdit();
-    } else if (event.keyCode === 13) {
-      // ENTER keycode
-      return this.saveEdit();
-    }
-    // Do nothing on typing
+  stopEditing() {
+    this.isEditing = false;
   }
 
-  saveEdit() {
-    if (!this.editing) {
-      return undefined;
+  updateTodo(event) {
+    if (event.keyCode === 13) { // Enter key
+      this.stopEditing();
+      this.dispatchEvent(
+        new CustomEvent('todo_update', {
+          bubbles: true,
+          composed: true,
+          detail: { id: this.todo.id, title: event.target.value.trim() },
+        })
+      );
+    } else if (event.keyCode === 27) { // ESC key
+      this.stopEditing();
     }
-
-    this.editableValue = this.editableEl.value.trim();
-
-    if (this.editableValue) {
-      this.dispatchEvent(new CustomEvent('saveedit'));
-    } else {
-      this.dispatchRemoveTodo();
-    }
-
   }
 
-  cancelEdit() {
-    this.editableEl.value = this.oldTitle;
-    this.dispatchEvent(new CustomEvent('canceledit'));
-  }
-
-  dispatchRemoveTodo() {
-    this.dispatchEvent(new CustomEvent('removetodo'));
-  }
-  
   get todoClasses() {
     return classNames({
-      completed: this.completed,
-      editing: this.editing,
+      completed: this.todo.completed,
+      editing: this.isEditing,
     });
+  }
+
+  get viewClasses() {
+    return this.isEditing ? 'view hidden' : 'view';
+  }
+
+  get editClasses() {
+    return this.isEditing ? 'edit' : 'edit hidden';
   }
 }
