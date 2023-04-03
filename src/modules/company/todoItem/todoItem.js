@@ -35,7 +35,8 @@ export default class TodoItem extends LightningElement {
   }
 
   updateTodo(event) {
-    if (event.keyCode === 13) { // Enter key
+    const isEmpty = event.target.value.trim() === '';
+    if (event.keyCode === 13 && !isEmpty) { // Enter key
       this.stopEditing();
       this.dispatchEvent(
         new CustomEvent('todo_update', {
@@ -46,6 +47,8 @@ export default class TodoItem extends LightningElement {
       );
     } else if (event.keyCode === 27) { // ESC key
       this.stopEditing();
+    } else if (event.keyCode === 13 && isEmpty) { // Enter + Clear input
+      this.removeTodo();
     }
   }
 

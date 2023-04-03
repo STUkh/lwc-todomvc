@@ -13,7 +13,7 @@
                 ontodo_update={handleUpdateTodo}
             ></company-todo-list>
             <company-todo-footer
-                if:true={todos.length}
+                lwc:if={todos.length}
                 todos={todos}
                 filter={filter}
                 ontodo_clear_completed={handleClearCompleted}

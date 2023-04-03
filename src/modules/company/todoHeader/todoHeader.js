@@ -5,7 +5,7 @@ export default class TodoHeader extends LightningElement {
   @api todos;
   
   addTodo(event) {
-    if (event.keyCode === 13) { // Enter key
+    if (event.keyCode === 13 && event.target.value.trim() !== '') { // Enter key
       this.dispatchEvent(new CustomEvent('todo_add', { detail: event.target.value }));
       event.target.value = ''; // Clear input
     }

@@ -3,6 +3,6 @@
         <h1>todos</h1>
         <input type="text" class="new-todo" placeholder="What needs to be done?" onkeyup={addTodo} />
         <input id="toggle-all" class="toggle-all" type="checkbox" checked={allCompleted} onchange={switchAll}>
-        <label if:true={todos.length} for="toggle-all">Mark all as complete</label>
+        <label lwc:if={todos.length} for="toggle-all">Mark all as complete</label>
     </header>
 </template>

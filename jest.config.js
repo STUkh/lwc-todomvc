@@ -1,9 +1,13 @@
-// You only need this file
-// - if you want to customize your Jest environment
-// - if you want to use Jest i. e. from a Visual Studio Code extension
-const { jestConfig } = require('lwc-services/lib/config/jestConfig');
+import * as sfdxLwcConfig from '@salesforce/sfdx-lwc-jest/config.js';
 
-module.exports = {
-    ...jestConfig
-    // Add your custom Jest configuration
+const { jestConfig } = sfdxLwcConfig;
+
+const config = {
+    ...jestConfig,
+    moduleNameMapper: {
+        '^c/(.*)$': ['<rootDir>/src/modules/$1/$1'],
+        '^company/(.*)$': '<rootDir>/src/modules/company/$1/$1'
+    },
 };
+
+export default config;

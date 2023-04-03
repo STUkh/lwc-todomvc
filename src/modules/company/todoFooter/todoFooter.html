@@ -8,6 +8,6 @@
             <li><a href="#active" onclick={handleActiveFilter} class={activeSelectedClass}>Active</a></li>
             <li><a href="#completed" onclick={handleCompletedFilter} class={completedSelectedClass}>Completed</a></li>
         </ul>
-        <button if:true={showClearCompleted} class="clear-completed" onclick={handleClearCompleted}>Clear completed</button>
+        <button lwc:if={showClearCompleted} class="clear-completed" onclick={handleClearCompleted}>Clear completed</button>
     </footer>
 </template>

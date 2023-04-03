@@ -11,9 +11,14 @@ export default class TodoApp extends LightningElement {
 	// !!! tracked entity reference is changed
   connectedCallback() {
 		// Alternative way to store items to localStorage
-    //window.addEventListener('beforeunload', () => {
+    // window.addEventListener('beforeunload', () => {
     //  this.saveTodosToLocalStorage();
-    //});
+    // });
+  }
+
+  constructor() {
+    super();
+    this.template.model = this; // Require for testing
   }
 
   get filteredTodos() {

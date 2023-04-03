@@ -10,6 +10,10 @@ export default class TodoFooter extends LightningElement {
     return this.todos.filter((todo) => !todo.completed);
   }
 
+  get showClearCompleted() {
+    return this.todos.some(todo => todo.completed);
+  }
+
   handleAllFilter() {
     this.dispatchEvent(new CustomEvent('todo_filter_change', { detail: 'all' }));
   }
