@@ -4,7 +4,7 @@
 
 Start this project if you like it ⭐
 
-## ℹ️ Easy to develop
+## ℹ️ Easy to develop 
 
 No need to setup any salesforce external environments!!! Start building full-featured LWC components locally without overhead.
 ## ⚙️ How to start?
