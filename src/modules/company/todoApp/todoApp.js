@@ -8,8 +8,12 @@ export default class TodoApp extends LightningElement {
   @api filter = 'all'; // 
   @api todos = getTodosFromLocalStorage(); // initialize internal reactive value
 
-  // Fetch data from server. 2nd argument in param with $ prefix. Example: { type: $filter }
-  @wire(todoWireAdapter, {})
+  // Params for @wire adapter. Not used elsewhere in app
+  @track skip = 0;
+  @track limit = 5;
+
+  // Fetch data from server. 2nd argument in param with $ prefix. Example: { type: '$filter' }
+  @wire(todoWireAdapter, { skip: '$skip', limit: '$limit'})
   wireTodos({ error, data }) {
     if (data) {
         this.todos = data;

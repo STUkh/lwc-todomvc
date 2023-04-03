@@ -24,7 +24,7 @@ export const getMockWireAdapter = (dataFetcher) => {
         async update(config) {
             if(this.connected) {
                 try {
-                    const data = await dataFetcher(config); 
+                    const data = await dataFetcher(config);
                     this.callback({ data });
                 } catch (error) {
                     this.callback({ error });
