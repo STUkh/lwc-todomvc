@@ -1,7 +1,6 @@
 import { createElement } from 'lwc';
 import companyTodoApp from '../todoApp';
 import { getTodosFromLocalStorage, saveTodosToLocalStorage } from '../../../../utils/localStorage';
-import { sleep } from '../../../../utils/testHelpers';
 
 let appComponent;
 let defaultTodos = [

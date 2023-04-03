@@ -17,14 +17,14 @@ export default {
     },
     module: {
         rules: [
-            {
-                test: /\.js$/,
-                // Unignore @lwc to properly load sourcemaps for @lwc/synthetic-shadow and @lwc/engine-dom
-                exclude: /node_modules\/(?!@lwc)(.*)/, 
-                use: {
-                    loader: 'babel-loader'
-                }
-            },
+            // {
+            //     test: /\.js$/,
+            //     // Unignore @lwc to properly load sourcemaps for @lwc/synthetic-shadow and @lwc/engine-dom
+            //     exclude: /node_modules\/(?!@lwc)(.*)/, 
+            //     use: {
+            //         loader: 'babel-loader'
+            //     }
+            // },
             // {
             //     test: /\.html$/,
             //     exclude: /index\.html$/,

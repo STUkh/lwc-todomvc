@@ -1,11 +1,22 @@
 // todo-app.js
-import { LightningElement, track, api } from 'lwc';
+import { LightningElement, track, api, wire } from 'lwc';
 import { getTodosFromLocalStorage, saveTodosToLocalStorage } from '../../../utils/localStorage';
+import { todoWireAdapter } from './todoApp.service';
 
 export default class TodoApp extends LightningElement {
-	// Use @track decorator to make reactive entity on component level
-  @api todos = getTodosFromLocalStorage() || [];
-  @api filter = 'all'; // Use api to make component params testable
+	// Use @api decorator to make reactive entity on component level and expose data to be testable
+  @api filter = 'all'; // 
+  @api todos = getTodosFromLocalStorage(); // initialize internal reactive value
+
+  // Fetch data from server. 2nd argument in param with $ prefix. Example: { type: $filter }
+  @wire(todoWireAdapter, {})
+  wireTodos({ error, data }) {
+    if (data) {
+        this.todos = data;
+    } else if (error) {
+        this.error = error;
+    }
+  }
 	
 	// !!! Describe all methods here because LWC will render changes only when
 	// !!! tracked entity reference is changed
